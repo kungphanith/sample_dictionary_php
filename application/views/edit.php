@@ -1,17 +1,17 @@
 <?php $title = "Edit Mode"; include "include_files/head.php" ?>
 <?php include "include_files/header.php" ?>
 
-	<div class="col-md-12" style="margin-top: 20px" >
+	<div class="col-sm-12" style="margin-top: 20px" >
 		<div class="row">
-			<div class="col-md-8 " id="show-panel" >
-				<div class="col-md-8" >
+			<div class="col-sm-8 " id="show-panel" >
+				<div class="col-sm-8" >
 					<div class="form-group" >
 						<input type="hidden" id="id" name="id" class="form-control" placeholder="" >
-						<input type="text" id="word" name="word" class="form-control" placeholder="Word.." >
+						<input type="text" id="word" name="word" class="form-control" placeholder="ពាក្យ" >
 					</div>
 					<div class="form-group" >
 						<select id="pos" name="pos" class="form-control" >
-							<option>Select part of speech</option>
+							<option>ជ្រើសរើសថ្នាកពាក្យ</option>
 							<?php 
 							foreach ($pos as $pos) {
 								echo "<option value=".$pos->id."> ".$pos->pos_name." ($pos->abbraviation) </option>";
@@ -20,19 +20,19 @@
 						</select>
 					</div>
 					<div class="form-group" >
-						<textarea id="description" name="description" class="form-control" placeholder="Description" style="height: 120px;"></textarea>
+						<textarea id="description" name="description" class="form-control" placeholder="បកស្រាយ" style="height: 120px;"></textarea>
 					</div>
 					<br>
 					<p id="scr-result" ></p>
 				</div>
-				<div class="col-md-4" >
-					<div onclick="addWord()" class="btn btn-primary full" >Add</div><br><br>
-					<div onclick="editWord()" class="btn btn-info full" >Edit</div><br><br>
-					<div onclick="deleteWord()" class="btn btn-warning full" >Delete</div><br><Br>
+				<div class="col-sm-4" >
+					<div onclick="addWord()" class="btn btn-primary full" >បន្ថែម</div><br><br>
+					<div onclick="editWord()" class="btn btn-info full" >កែប្រ</div><br><br>
+					<div onclick="deleteWord()" class="btn btn-warning full" >លុប</div><br><Br>
 				</div>
 			</div>
-			<div class="col-md-4 panel-body coe-panel-has-background" id="search-panel" >
-	            <input type="text" name="keyword" class="form-control" placeholder="Type the word here..." oninput="search_word(this.value)" >
+			<div class="col-sm-4 panel-body coe-panel-has-background" id="search-panel" >
+	            <input type="text" name="keyword" class="form-control" placeholder="សរសេរដើម្បីស្វែងរក" oninput="search_word(this.value)" >
 	            <hr>
 	            <div class="word-result-list coe-scroll" id="word-result-list" style="height: 60%" >
 	            	
