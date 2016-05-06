@@ -36,7 +36,7 @@ class Dictionary extends CI_Controller {
 
 		if($word=="" or $pos=="" or $description==""){
 			echo 0;
-			return 0;	
+			return 0;
 		}
 		$this->load->model('dictionary_model');
 		if($this->dictionary_model->add_word($word, $pos, $description)){
@@ -63,7 +63,7 @@ class Dictionary extends CI_Controller {
 
 		if($word=="" or $pos=="" or $description==""){
 			echo 0;
-			return 0;	
+			return 0;
 		}
 		$this->load->model('dictionary_model');
 		if($this->dictionary_model->edit_word($id, $word, $pos, $description)){

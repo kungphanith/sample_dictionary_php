@@ -14,38 +14,38 @@
 			function translate_word(_id){
 				$.ajax({
 			      type: "POST",
-			      url: "<?php base_url() ?>dictionary/translate_word",  
+			      url: "<?php base_url() ?>dictionary/translate_word",
 			      data: {
 			        id: _id
 			      },
-			      beforeSend: function() 
+			      beforeSend: function()
 			      {
-			        
-			      },  
+
+			      },
 			      success: function(data)
 			      {
 			      	data = JSON.parse(data);
 			      	data = data[0];
-			      	$('#word-result-show').html("<h4>"+data.word+" <i> ("+data.abbraviation+") </i> </h4><p style='color: black' >"+data.description+"</p>");
+			      	$('#word-result-show').html("<h4>"+data.word+" <i> ("+data.abbraviation+") </i> </h4><p style='color: black' >"+data.description+"</p> ");
 			      }
-			    });	
+			    });
 			}
 
 			function search(_key){
 				if(_key == ""){
-					$('#word-result-list').html("");	
+					$('#word-result-list').html("");
 					return 0;
 				}
 			    $.ajax({
 			      type: "POST",
-			      url: "<?php ?>dictionary/search",  
+			      url: "<?php ?>dictionary/search",
 			      data: {
 			        key: _key
 			      },
-			      beforeSend: function() 
+			      beforeSend: function()
 			      {
-			        
-			      },  
+
+			      },
 			      success: function(data)
 			      {
 			      	data = JSON.parse(data);

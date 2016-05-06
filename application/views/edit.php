@@ -12,7 +12,7 @@
 					<div class="form-group" >
 						<select id="pos" name="pos" class="form-control" >
 							<option>ជ្រើសរើសថ្នាកពាក្យ</option>
-							<?php 
+							<?php
 							foreach ($pos as $pos) {
 								echo "<option value=".$pos->id."> ".$pos->pos_name." ($pos->abbraviation) </option>";
 							}
@@ -35,7 +35,7 @@
 	            <input type="text" name="keyword" class="form-control" placeholder="សរសេរដើម្បីស្វែងរក" oninput="search_word(this.value)" >
 	            <hr>
 	            <div class="word-result-list coe-scroll" id="word-result-list" style="height: 60%" >
-	            	
+
 	            </div>
 			</div>
 		</div>
@@ -69,15 +69,15 @@
 
 			$.ajax({
 		      type: "POST",
-		      url: "<?= base_url() ?>dictionary/do_add",  
+		      url: "<?= base_url() ?>dictionary/do_add",
 		      data: {
 		        word: word,
 		        pos: pos,
 		        description: description
 		      },
-		      beforeSend: function() 
+		      beforeSend: function()
 		      {
-		      },  
+		      },
 		      success: function(data)
 		      {
 		      	if(data == "1"){
@@ -88,11 +88,11 @@
 		      		show_result("<i class='fa fa-flash'> </i> "+word + " is ready in database!")	;
 		      	}
 		      	else{
-		      		show_result("Can't not add new word.");	
+		      		show_result("Can't not add new word.");
 		      	}
 		      	// console.log(data);
 		      }
-		    });	
+		    });
 		}
 		function editWord(){
 			var id = $('#id').val();
@@ -104,16 +104,16 @@
 			}
 			$.ajax({
 		      type: "POST",
-		      url: "<?= base_url() ?>dictionary/do_edit",  
+		      url: "<?= base_url() ?>dictionary/do_edit",
 		      data: {
 		      	id: id,
 		        word: word,
 		        pos: pos,
 		        description: description
 		      },
-		      beforeSend: function() 
+		      beforeSend: function()
 		      {
-		      },  
+		      },
 		      success: function(data)
 		      {
 		      	if(data == "1"){
@@ -125,11 +125,11 @@
 		      		show_result("<i class='fa fa-flash'> </i> "+word + " is ready in database")	;
 		      	}
 		      	else{
-		      		show_result("Please fill all of required field.");	
+		      		show_result("Please fill all of required field.");
 		      	}
 		      	// console.log(data);
 		      }
-		    });	
+		    });
 
 		}
 		function deleteWord(){
@@ -148,7 +148,7 @@
 		      	clear_form();
 		      	show_result("<i class='fa fa-check-circle-o'> </i> Delete successfully!");
 		      }
-		    });	
+		    });
 		}
 		function show_result(_result){
 			$('#scr-result').html(_result);
@@ -159,19 +159,19 @@
 		}
 		function search_word(_key){
 			if(_key == ""){
-				$('#word-result-list').html("");	
+				$('#word-result-list').html("");
 				return 0;
 			}
 		    $.ajax({
 		      type: "POST",
-		      url: "<?= base_url() ?>dictionary/search",  
+		      url: "<?= base_url() ?>dictionary/search",
 		      data: {
 		        key: _key
 		      },
-		      beforeSend: function() 
+		      beforeSend: function()
 		      {
-		        
-		      },  
+
+		      },
 		      success: function(data)
 		      {
 		      	data = JSON.parse(data);
